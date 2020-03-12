@@ -1,0 +1,19 @@
+# the virsion we will use
+version: "3"
+
+#only on services
+services:
+  #our app name
+  app:
+    build:
+      # where to build our images
+      context: .
+      # the port forward
+    ports:
+      - "8000:8000"
+    # map volum to add the change from host to guest images
+    volumes:
+      - ./app:/app
+    # the command that will run our app and break the command in next line
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
