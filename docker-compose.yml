@@ -14,6 +14,6 @@ services:
     # map volum to add the change from host to guest images
     volumes:
       - ./app:/app
-    # the command that will run our app and break the command in next line
+    # the command that will run our app -  break the command in next line
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"

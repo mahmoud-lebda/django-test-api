@@ -1,0 +1,13 @@
+# the language
+language: python
+# python version - it said that 3.6 is the travis stable version
+python:
+  - "3.6"
+# what services that we need
+services:
+  - docker
+# befor any automation
+before_script: pip install docker-compose
+
+script:
+  - docker-compose run app sh -c "python manage.py runserver && flake8"
