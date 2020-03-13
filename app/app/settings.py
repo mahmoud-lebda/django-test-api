@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # my apps
     'core',
+
+    # third party apps
 ]
 
 MIDDLEWARE = [
@@ -120,4 +124,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# add new user model
 AUTH_USER_MODEL = 'core.User'
