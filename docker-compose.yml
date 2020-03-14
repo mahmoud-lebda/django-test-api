@@ -17,3 +17,20 @@ services:
     # the command that will run our app -  break the command in next line
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment: 
+      - DB_HOST=db
+      - DB_NAME=app
+      - DB_USER=postgres
+      - DB_PASS=Test@123
+    depends_on: 
+      - db
+      
+  db:
+    # postgres lightweight version
+    image: postgres:10-alpine
+    # set the database variables
+    environment: 
+      - POSTGRES_DB=app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Test@123
+

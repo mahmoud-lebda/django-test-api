@@ -1,13 +1,28 @@
 # image name & maintainer name
 FROM python:3.7-alpine
-MAINTAINER Mahmoud Lebda
+LABEL maintainer="Mahmoud Lebda"
 
 # stop python buffer recommend to run in container
 ENV PYTHONUNBUFFERED 1
 
+
 # install dependencies
 COPY ./requirements.txt /requirements.txt
+# dependencies for psycopg2 to work
+# it uses the package manager that comes with alpine
+# apk the package manager
+# add for add a package
+# update the registry before we add
+# no cache don't store the registry index in docker
+# no cache to minimize the number of extra files and packages
+RUN apk add --update --no-cache postgresql-client
+# temporary packages  to make requirements run in Alpine
+# virtual set alias for dependancies to easly remove them
+RUN apk add --update --no-cache --virtual .tmp-build-deps \
+    gcc libc-dev linux-headers postgresql-dev
 RUN pip install -r /requirements.txt
+# remove temprary
+RUN apk del .tmp-build-deps
 
 # make directory to copy our app source code
 RUN mkdir /app
