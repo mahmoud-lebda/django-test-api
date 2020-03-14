@@ -2,8 +2,7 @@
 
 ## this is test app for django api
 
-here i test many things to make refrance app 
-i will list here what in this source code:
+here i test many things to make a refrance Source code 
 
 - Docker file
 - Docker Compose
