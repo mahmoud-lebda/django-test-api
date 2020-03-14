@@ -1,4 +1,5 @@
 # image name & maintainer name
+# new one 3.8-alpine
 FROM python:3.7-alpine
 LABEL maintainer="Mahmoud Lebda"
 
@@ -20,6 +21,7 @@ RUN apk add --update --no-cache postgresql-client
 # virtual set alias for dependancies to easly remove them
 RUN apk add --update --no-cache --virtual .tmp-build-deps \
     gcc libc-dev linux-headers postgresql-dev
+# install python dependencies
 RUN pip install -r /requirements.txt
 # remove temprary
 RUN apk del .tmp-build-deps
