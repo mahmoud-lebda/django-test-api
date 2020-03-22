@@ -1,5 +1,5 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 
 
 class ModelTests(TestCase):
@@ -25,6 +25,12 @@ class ModelTests(TestCase):
         # any thing run here and don't rais error this test is fail
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user(None, 'Test@123')
+
+    def test_new_user_invalid_email2(self):
+        """ Test creating user with no email raisis error"""
+        # any thing run here and don't rais error this test is fail
+        with self.assertRaises(ValueError):
+            get_user_model().objects.create_user(email= 'mahmoud', password= 'Test@123')
 
     def test_create_new_super_user(self):
         """ test creating new super user """

@@ -2,7 +2,7 @@
 
 ## this is test app for django api
 
-here i test many things to make a refrance Source code 
+here i will make a referance Source code 
 
 - Docker file
 - Docker Compose
@@ -10,6 +10,8 @@ here i test many things to make a refrance Source code
 - Travis-ci
 - Git & Github
 - Postgres
+- Djangorestframework
+
 
 ** Django **
 - Custom user model
