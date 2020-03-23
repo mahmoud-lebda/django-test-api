@@ -13,6 +13,7 @@ class UserManager(BaseUserManager):
         # add normalize func to email to lowercase email domain
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
+        # user.full_clean()
         user.save(using=self._db)
         return user
 
