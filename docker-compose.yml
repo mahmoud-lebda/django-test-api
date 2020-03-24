@@ -1,4 +1,4 @@
-# the virsion we will use
+# the version we will use
 version: "3"
 
 #only on services
@@ -11,7 +11,7 @@ services:
       # the port forward
     ports:
       - "8000:8000"
-    # map volum to add the change from host to guest images
+    # map volume to add the change from host to guest images
     volumes:
       - ./app:/app
     # the command that will run our app -  break the command in next line
@@ -30,6 +30,8 @@ services:
   db:
     # postgres lightweight version
     image: postgres:10-alpine
+    ports:
+      - "5432:5432"
     # set the database variables
     environment: 
       - POSTGRES_DB=app
