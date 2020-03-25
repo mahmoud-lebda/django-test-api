@@ -6,7 +6,8 @@ for multiple languages it will make it a lot easier
 '''
 from django.utils.translation import gettext as _
 
-from core.models import User, Tag, Ingredient
+from core.models import User, Tag,\
+    Ingredient, Recipe
 
 
 class UserAdmin(BaseUserAdmin):
@@ -33,3 +34,4 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(Tag)
 admin.site.register(Ingredient)
+admin.site.register(Recipe)
